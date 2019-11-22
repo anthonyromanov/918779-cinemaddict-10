@@ -1,7 +1,7 @@
 # Личный проект «Киноман» [![Build status][travis-image]][travis-url]
 
 * Студент: [Антон Романов](https://up.htmlacademy.ru/ecmascript/10/user/918779).
-* Наставник: `Неизвестно`.
+* Наставник: [Андрей Карякин](https://https://htmlacademy.ru/profile/id133011).
 
 ---
 
