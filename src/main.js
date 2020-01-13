@@ -3,6 +3,10 @@
 const FILMS_COUNT = 5;
 const FILMS_EXTRA_COUNT = 2;
 
+const profileNameElement = document.querySelector(`.header`);
+const siteMainElement = document.querySelector(`.main`);
+
+
 const createFilmsTemplate = () => {
   return (
     `<section class="films"></section>`
@@ -227,25 +231,24 @@ const render = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
 };
 
-const profileNameElement = document.querySelector(`.header`);
-render(profileNameElement, createProfileNameTemplate(), `beforeend`);
+const renderTemplates = () => {
 
-const siteMainElement = document.querySelector(`.main`);
-render(siteMainElement, createMenuTemplate(), `beforeend`);
-render(siteMainElement, createFilmsTemplate(), `beforeend`);
+  render(profileNameElement, createProfileNameTemplate(), `beforeend`);
+  render(siteMainElement, createMenuTemplate(), `beforeend`);
+  render(siteMainElement, createFilmsTemplate(), `beforeend`);
 
-const filmsListElement = siteMainElement.querySelector(`.films`);
-new Array(FILMS_COUNT)
-  .fill(``)
-  .forEach(
-      () => render(filmsListElement, createFilmsListTemplate(), `beforeend`)
-  );
+  const filmsListElement = siteMainElement.querySelector(`.films`);
+  for (let i = 0; i < FILMS_COUNT; i++) {
+    render(filmsListElement, createFilmsListTemplate(), `beforeend`);
+  }
 
-const filmsShowElement = filmsListElement.querySelector(`.films-list`);
-render(filmsShowElement, createShowMoreTemplate(), `beforeend`);
+  const filmsShowElement = filmsListElement.querySelector(`.films-list`);
+  render(filmsShowElement, createShowMoreTemplate(), `beforeend`);
+  for (let j = 0; j < FILMS_EXTRA_COUNT; j++) {
+    render(filmsListElement, createFilmsListExtraTemplate(), `beforeend`);
+  }
 
-new Array(FILMS_EXTRA_COUNT)
-  .fill(``)
-  .forEach(
-      () => render(filmsListElement, createFilmsListExtraTemplate(), `beforeend`)
-  );
+};
+
+renderTemplates();
+
