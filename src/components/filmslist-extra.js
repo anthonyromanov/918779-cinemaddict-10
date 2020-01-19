@@ -1,6 +1,5 @@
 export const createFilmsListExtraTemplate = () => {
-  return (
-    `<section class="films-list--extra">
+  return `<section class="films-list--extra">
       <h2 class="films-list__title">Top rated</h2>
 
       <div class="films-list__container">
@@ -81,6 +80,5 @@ export const createFilmsListExtraTemplate = () => {
           </form>
         </article>
       </div>
-    </section>`
-  );
+    </section>`;
 };
